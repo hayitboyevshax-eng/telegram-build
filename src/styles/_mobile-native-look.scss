@@ -1,0 +1,37 @@
+// HWTelegram: mobil ko'rinishni native Telegram ilovasiga yaqinlashtirish uchun
+// qo'shimcha uslublar. Barcha o'zgarishlar shu faylda izolyatsiya qilingan —
+// asosiy komponent fayllariga tegilmadi, shuning uchun kerak bo'lsa bu faylni
+// index.scss'dan olib tashlash (@use qatorini o'chirish) bilan hammasi eski holiga qaytadi.
+//
+// Faqat "xavfsiz" (layout o'lchamlarini o'zgartirmaydigan) xususiyatlar o'zgartirilgan:
+// border-radius, box-shadow, border, rang. Joylashuv/o'lcham (margin, width, height,
+// position) ataylab tegilmagan, chunki bu loyihani shu yerda build qilib sinab
+// ko'rish imkoni yo'q — o'lcham o'zgarsa boshqa joylarda buzilishi mumkin edi.
+
+@media (max-width: 600px) {
+  // ---- Chat header: suzib turuvchi "island" o'rniga tekis, native-uslubdagi bar ----
+  .MiddleHeader {
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid var(--color-borders);
+  }
+
+  // ---- Chap panel (chatlar ro'yxati) headeri ham xuddi shunday tekislanadi ----
+  #LeftColumn .LeftMainHeader,
+  #LeftColumn .left-header {
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid var(--color-borders);
+  }
+
+  // ---- Xabar yozish paneli (composer): kamroq dumaloq, natívga yaqinroq burchak ----
+  :root {
+    --composer-pill-radius: 1.125rem;
+  }
+
+  // ---- Xabar pufakchalari: native ilovadagidek biroz kattaroq burchak radiusi ----
+  :root {
+    --border-radius-messages: 1.125rem;
+    --border-radius-messages-small: 0.3125rem;
+  }
+}
